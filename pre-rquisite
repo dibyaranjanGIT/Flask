@@ -1,0 +1,7 @@
+1.
+once you install flask then set the below environment variable from your Terminal
+set FLASK_APP = main.py
+
+2.
+To run flask app run below commands
+flask --app main run
