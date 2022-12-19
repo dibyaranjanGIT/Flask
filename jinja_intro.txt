@@ -1,0 +1,18 @@
+Jinja is a templating language for python. In HTML alone we can’t use variables, 
+for loops, if else things like that but jinja makes it possible for us. 
+
+It just changes our whole experience of writing in HTML and it opens up a whole lot of 
+new possibilities to try. 
+
+How to access static folder?
+There are two ways to do this.
+<img src=”static/img_name.png”>
+With jinja we can do it like:
+<img src="{{ url_for('static', filename='img_name.png') }}">
+
+For loop in jinja:
+<ul>
+{% for user in users %}
+  <li><a href="{{ user.url }}">{{ user.username }}</a></li>
+{% endfor %}
+</ul>
