@@ -2,13 +2,14 @@ from flask import Flask, render_template, request
 # Import sqlalchemy to connect to database
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 import json
 
 
 local_server = True
 with open('config.json', mode='r') as f:
     params = json.load(f)['params']
-
+ 
 app = Flask(__name__)
 app.config.update(
     MAIL_SERVER = 'smtp.gmail.com',
@@ -37,12 +38,14 @@ class Contact(db.Model):
 
 @app.route("/")
 def home():
-    return render_template('index.html')
+    current_year = datetime.datetime.now().year
+    return render_template('index.html', year=current_year)
 
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    current_year = datetime.datetime.now().year
+    return render_template('about.html', year=current_year)
 
 # create a end point with GET and POST method to add the record to the database.
 @app.route("/contact", methods=['GET', 'POST'])
@@ -67,9 +70,17 @@ def contact():
 
 @app.route("/post")
 def post():
-    return render_template('post.html')
+    current_year = datetime.datetime.now().year
+    return render_template('post.html', year=current_year)
 
 
+@app.route("/dashboard")
+def dashboard():
+    if request.method=="POST":
+        # TODO:REDIRECT TO ADMIN PANEL
+        pass
+    else:
+        return render_template("login.html", params=params)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -5,7 +5,9 @@
         "local_uri":"mysql+pymysql://root:@localhost/cleanblog",
         "prod_uri":"mysql+pymysql://root:@localhost/cleanblog",
         "gmail_user":"dibyaranjanprm.51@gmail.com",
-        "gmail_password":"Pra51M@66D9"
+        "gmail_password":"Pra51M@66D9",
+        "about_text": "Hi my name is harry and I create programming tutorials and I am a good boy",
+        "no_of_posts": 3
     }
 
 
